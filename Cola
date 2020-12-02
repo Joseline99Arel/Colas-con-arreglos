@@ -1,0 +1,68 @@
+package Joseline;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main (String []args){
+        
+    Scanner entrada = new Scanner (System.in);
+    
+    String [] Arreglo = new String [5];
+    int a=1,Respuesta=0, Posicion = 0;
+    String Nombre;
+    
+    while(a==1){
+        System.out.println("Elije una Opcion");
+        System.out.println("1.- Insertar");
+        System.out.println("2.- Eliminar");
+        System.out.println("3.- Mostrar");
+        System.out.println("4.- Salir");
+        Respuesta=entrada.nextInt();
+            
+        if(Respuesta>0 && Respuesta<5){
+            switch(Respuesta){
+                case 1: 
+                if (Posicion <5){
+                    System.out.println("Por favor ingresa un dato");
+                    Nombre = entrada.next();
+                    Arreglo [Posicion] = Nombre;
+                    Posicion++;
+                }
+                else{
+                    System.out.println("Ya no caben mas elementos en la cola");
+                }
+                break;
+                case 2: 
+                if (Posicion==0){
+                    System.out.println("No hay elemntos en la cola");
+                }
+                else{
+                    System.out.println("Se ha eliminado un elemento de la cola");
+                    Arreglo [0] = null;
+                    Arreglo [4] = null;
+                    Posicion--;
+                    for (int i=0; i<4; i++){
+                        Arreglo [i] = Arreglo[i+1];
+                    }
+                }
+                break;
+                case 3: 
+                System.out.println("Mostrando Datos");
+                for (int i=0; i<5; i++){
+                System.out.println(Arreglo[i]);
+                }
+                break;
+                case 4: 
+                System.exit(0);
+                break; 
+            }
+            System.out.println("Quieres repetir el proceso 1:Si 2:No");
+            a=entrada.nextInt();
+            }
+            else
+            {
+                System.out.println("El numero que ingresaste esta fuera de las opciones ");
+            }
+        }     
+    }
+}
